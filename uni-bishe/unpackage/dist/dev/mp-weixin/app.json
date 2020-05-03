@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/one/one",
+    "pages/two/two",
+    "pages/chat/chat",
+    "pages/user/user"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "民师院食堂",
+    "navigationBarBackgroundColor": "#f66",
+    "backgroundColor": "#efefef"
+  },
+  "tabBar": {
+    "backgroundColor": "#ccc",
+    "selectedColor": "#f66",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/resources/home.png",
+        "selectedIconPath": "static/resources/home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/one/one",
+        "iconPath": "static/resources/one.png",
+        "selectedIconPath": "static/resources/one_active.png",
+        "text": "一食堂"
+      },
+      {
+        "pagePath": "pages/two/two",
+        "iconPath": "static/resources/two.png",
+        "selectedIconPath": "static/resources/two_active.png",
+        "text": "二食堂"
+      },
+      {
+        "pagePath": "pages/chat/chat",
+        "iconPath": "static/resources/chat.png",
+        "selectedIconPath": "static/resources/chat_active.png",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/resources/user.png",
+        "selectedIconPath": "static/resources/user_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

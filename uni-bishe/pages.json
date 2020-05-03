@@ -1,0 +1,90 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// {
+		// 	"path": "pages/index/index",
+		// 	"style": {
+		// 		"navigationBarTitleText": "民师院食堂"
+		// 	}
+		// },
+		{
+            "path" : "pages/home/home",
+            "style" : {
+				"navigationBarTitleText": "首页"
+			}
+        }
+        ,{
+            "path" : "pages/one/one",
+            "style" : {
+				"navigationBarTitleText": "一食堂"
+			}
+        }
+        ,{
+            "path" : "pages/two/two",
+            "style" : {
+				"navigationBarTitleText": "二食堂"
+			}
+        }
+        ,{
+            "path" : "pages/chat/chat",
+            "style" : {
+				"navigationBarTitleText": "社区"
+			}
+        }
+        ,{
+            "path" : "pages/user/user",
+            "style" : {
+				"navigationBarTitleText": "我的"
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "民师院食堂",
+		"navigationBarBackgroundColor": "#f66",
+		"backgroundColor": "#efefef"
+	},
+	/* 底部导航 */
+	"tabBar":{
+		"backgroundColor":"#ccc",
+		"selectedColor": "#f66",
+		"list":[
+			{
+				"pagePath": "pages/home/home",
+				"iconPath": "static/resources/home.png",
+				"selectedIconPath": "static/resources/home_active.png",
+				"text": "首页"
+			},{
+				"pagePath": "pages/one/one",
+				"iconPath": "static/resources/one.png",
+				"selectedIconPath": "static/resources/one_active.png",
+				"text": "一食堂"
+			},{
+				"pagePath": "pages/two/two",
+				"iconPath": "static/resources/two.png",
+				"selectedIconPath": "static/resources/two_active.png",
+				"text": "二食堂"
+			},{
+				"pagePath": "pages/chat/chat",
+				"iconPath": "static/resources/chat.png",
+				"selectedIconPath": "static/resources/chat_active.png",
+				"text": "社区"
+			},{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/resources/user.png",
+				"selectedIconPath": "static/resources/user_active.png",
+				"text": "我的"
+			}
+		]
+	},
+	// 配置微信小程序中的编译模式
+	"condition":{
+		"current":0,
+		"list":[{
+			"name":"一食堂",
+			"path":"pages/one/one"
+		},{
+			"name":"二食堂",
+			"path":"pages/two/two"
+		}]
+	}
+}
