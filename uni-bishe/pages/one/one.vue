@@ -1,48 +1,29 @@
 <template>
 	<view class="one">
 		<view class="left">
-			<list>
-				<cell v-for="(item,index) in nav" :key="index" @click="selected(item.id)" :class="item.id===isSelected?'active':''">{{item.text}}</cell>
-			</list>
+			<ul style='padding: 0;'>
+				<li v-for="(item,index) in nav" :key="index" @click="selected(item.id)" :class="item.id===isSelected?'active':''">{{item.text}}</li>
+			</ul>
 		</view>
 		<view class="right">
 			<!-- 顶部 -->
 			<view class="right_top">
-				<list>
-					<cell>一楼</cell>
-					<cell>二楼</cell>
-				</list>
+				<ul>
+					<li v-for='item2 in nav2' :key='item2.idx' @click="change(item2.idx)" :class="item2.idx===isSelected2?'cur':''">{{ item2.text2 }}</li>
+				</ul>
 			</view>
 			<!-- 底部 -->
-			<view class="food_list">
-				<view class="list2">
-					<image src="../../static/resources/home.png" mode=""></image>
-					<p>一楼1号窗口</p>
+			<!-- <view class="food_list" > -->
+			<view class="food_list" v-for="item in foodlist"  :key='item.id'> 
+				<view class="list2" v-for="item2 in item.item" :key='item2.id' v-show="item2.flag==isSelected2" @click="toDetail(item2.id)">
+					 	<image :src="item2.img" mode=""></image>
+						<p>{{item2.flag==1?'一':'二'}}楼{{item2.msg}}号窗口</p>
 				</view>
-				<view class="list2">
-					<image src="../../static/logo.png" mode=""></image>
-					<p>一楼2号窗口</p>
-				</view>
-				<view class="list2">
+				
+				<!-- <view class="list2">
 					<image src="../../static/logo.png" mode=""></image>
 					<p>一楼3号窗口</p>
-				</view>
-				<view class="list2">
-					<image src="../../static/logo.png" mode=""></image>
-					<p>一楼3号窗口</p>
-				</view>
-				<view class="list2">
-					<image src="../../static/logo.png" mode=""></image>
-					<p>一楼3号窗口</p>
-				</view>
-				<view class="list2">
-					<image src="../../static/logo.png" mode=""></image>
-					<p>一楼3号窗口</p>
-				</view>
-				<view class="list2">
-					<image src="../../static/logo.png" mode=""></image>
-					<p>一楼3号窗口</p>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -55,30 +36,78 @@
 			return {
 				nav:[{id:1,text:"早餐"},{id:2,text:"午餐"},{id:3,text:"晚餐"}],
 				"isSelected":1,
-				nav2:[{id:1,text:'一楼'},{id:2,text:'二楼'}]
+				nav2:[{idx:1,text2:'一楼'},{idx:2,text2:'二楼'}],
+				"isSelected2":1,
+				"foodlist":[]
 			}
 		},
 		methods: {
+			/* 左边 早餐、午餐、晚餐*/
 			selected(id){
-				// console.log(666)
-				// console.log(id)
+				/* 高亮 */
 				this.isSelected=id
+				// console.log(this.isSelected)
+				/* 在request里无法使用this,解决办法：在request前将this存起来 */
+				let self=this
+				if(id==1){
+					id=1
+				}
+				uni.request({
+					url: 'http://localhost:10086/list',
+					data:{
+						id:String(id)
+					},
+					success(res) {
+					console.log('res',res.data.data)
+					self.foodlist=res.data.data
+					// console.log('this',self)
+					}
+				})
+			},
+			/* 右边 一楼、二楼*/
+			change(id){
+				this.isSelected2=id
+			},
+			/* 跳转详情页  =>传参 */
+			toDetail(id){
+				console.log('id',id)
+				uni.navigateTo({
+					url:`../../component/detail/detail?id=${id}`
+				})
 			}
+		},
+		/* 页面首次加载进入请求数据 */
+		created() {
+			/* 坑 */
+			/* 在request里无法使用this,解决办法：在request前将this存起来 */
+			let self=this
+			uni.request({
+				 url:'http://localhost:10086/list',
+				 data:{
+					 id:'1'
+				 },
+				 success(res) {
+				 	console.log('res-first',res.data.data[0])
+					self.foodlist=res.data.data
+					// console.log('this.foodlist',self.foodlist)
+				 }
+			})
 		}
+	
 	}
 </script>
 
 <style lang="scss" scoped>
+	ul,li{
+		list-style: none;
+	}
 .one{
 	display: flex;
 	.left{
 		width: 120rpx;
-		// background: #007AFF;
-		// float: left;
 		position: fixed;
-		list{
-			// border-right: 1rpx solid #ccc;
-			cell{
+		ul{
+			li{
 				display: block;
 				height: 150rpx;
 				line-height: 150rpx;
@@ -86,6 +115,7 @@
 				font-size: 40rpx;
 				border-bottom: 1rpx solid #ccc;
 				border-right:1rpx solid #ccc ;
+				font-weight: 600;
 			}
 			.active{
 				background: red;
@@ -95,27 +125,28 @@
 		
 	}
 	.right{
-		
 		width: 100%;
 		flex: 1;
-		// float: left;
-		// display: flex;
-		// flex-direction: column;
 		margin-left: 120rpx;
 		.right_top{
 			height: 100rpx;
 			line-height: 100rpx;
 			text-align: center;
 			font-size: 40rpx;
-			// position: fixed;
-			// left:120rpx;
-			// top: 0;
-			list{
+
+			ul{
 				display: flex;
 				border-bottom: 1rpx solid #ccc ;
-				cell{
+				/* 覆盖H5默认的左边padding的40px */
+				padding: 0 !important;
+				li{
 					flex: 1;
 					border-right: 1rpx solid #ccc;
+					font-weight: 600;
+				}
+				.cur{
+					background: red;
+					color: white;
 				}
 			}
 		}
@@ -128,12 +159,10 @@
 				position: relative;
 				width: 50%;
 				float: left;
-				// background: yellow;
 				image{
 					width: 98%;
 					height: 300rpx;
 					float: left;
-					// margin-left: 8rpx;
 					margin-bottom: 10rpx;
 				}
 				p{
@@ -145,7 +174,6 @@
 					left: 50%;
 					bottom: 10rpx;
 					transform: translateX(-50%);
-					// margin-left: 8rpx;
 					background: red;
 					color: white;
 				}

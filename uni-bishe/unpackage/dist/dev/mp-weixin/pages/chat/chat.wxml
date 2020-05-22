@@ -1,1 +1,1 @@
-<view>社区</view>
+<view class="chat data-v-35f13798"><image class="add data-v-35f13798" src="../../static/resources/chat/tianjia.png" mode data-event-opts="{{[['tap',[['chatadd']]]]}}" bindtap="__e"></image><view class="_ul data-v-35f13798"><view class="_li data-v-35f13798"><view class="data-v-35f13798">【问题】食堂路口的灯坏了，希望修理或更换一下</view><view class="data-v-35f13798"><text class="data-v-35f13798">发表者：XX</text><text class="data-v-35f13798">2020-10-9 09:36</text></view></view></view></view>

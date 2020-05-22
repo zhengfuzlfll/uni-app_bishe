@@ -4,7 +4,14 @@
     "pages/one/one",
     "pages/two/two",
     "pages/chat/chat",
-    "pages/user/user"
+    "pages/user/user",
+    "component/detail/detail",
+    "pages/login/login",
+    "pages/reg/reg",
+    "component/usermsg/usermsg",
+    "component/userorder/userorder",
+    "component/usernotice/usernotice",
+    "component/chatadd/chatadd"
   ],
   "subPackages": [],
   "window": {
@@ -49,5 +56,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap94.json"
 }

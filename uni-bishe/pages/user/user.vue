@@ -2,20 +2,26 @@
 	<view class="user">
 	  <view class="touxiang">
 	    <image class="img" src="../../static/logo.png"></image>
-	    <text>昵称</text>
+		<!-- <view>{{ user ? `<text>${user}</text>`:`<text @click="toLogin()">点击登录/注册</text>` }}</view> -->
+	    <!-- <text @click="toLogin()">{{user?user:'点击登录/注册'}}</text> -->
+		<!-- <div>{{user}}</div> -->
+		<!-- <text v-show="isok">{{user}}</text>
+		<text v-show="!isok" @click="toLogin()">点击登录/注册</text> -->
+		<text v-if="user">{{user}}</text>
+		<text v-else='' @click="toLogin()">点击登录/注册</text>
 	  </view>
 	  <view class="list">
-	    <view>
+	    <view @click="tousermsg()">
 	      <image class="img2" src="../../static/resources/user/user.png"></image>
 	      <text>账户信息</text>
 	      <image class="img3" src="../../static/resources/user/arrow.png"></image>
 	    </view>
-	    <view>
+	    <view @click="touserorder()">
 	      <image class="img2" src="../../static/resources/user/order.png"></image>
 	      <text>我的订单</text>
 	      <image class="img3" src="../../static/resources/user/arrow.png"></image>
 	    </view>
-	    <view>
+	    <view @click="tousernotice()">
 	      <image class="img2" src="../../static/resources/user/message.png"></image>
 	      <text>系统通知</text>
 	      <image class="img3" src="../../static/resources/user/arrow.png"></image>
@@ -28,10 +34,49 @@
 	export default {
 		data() {
 			return {
-				
+				user:'',
+				isok:false,
+				text:'点击登录/注册'
 			}
 		},
 		methods: {
+			/* 登录/注册 */
+			toLogin(){
+				uni.navigateTo({
+				    url: '../login/login'
+				});
+			},
+			/* 个人信息 */
+			tousermsg(){
+				uni.navigateTo({
+				    url: '../../component/usermsg/usermsg'
+				});
+			},
+			/* 订单列表 */
+			touserorder(){
+				uni.navigateTo({
+				    url: '../../component/userorder/userorder'
+				});
+			},
+			tousernotice(){
+				uni.navigateTo({
+				    url: '../../component/usernotice/usernotice'
+				});
+			}
+			
+		},
+		created() {
+			let self=this
+			uni.getStorage({
+				key:'user_phone',
+				success: function (res) {
+				    console.log(res.data)
+					if(res.data){
+						self.user=res.data
+						self.isok=false
+					}
+				}
+			})
 			
 		}
 	}

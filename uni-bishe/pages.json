@@ -36,6 +36,34 @@
 				"navigationBarTitleText": "我的"
 			}
         }
+        ,{
+            "path" : "component/detail/detail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/reg/reg",
+            "style" : {}
+        }
+        ,{
+            "path" : "component/usermsg/usermsg",
+            "style" : {}
+        }
+        ,{
+            "path" : "component/userorder/userorder",
+            "style" : {}
+        }
+        ,{
+            "path" : "component/usernotice/usernotice",
+            "style" : {}
+        }
+        ,{
+            "path" : "component/chatadd/chatadd",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

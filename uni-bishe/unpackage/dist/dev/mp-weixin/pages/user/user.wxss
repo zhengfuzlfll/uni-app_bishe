@@ -25,39 +25,40 @@
 /* 透明度 */
 /* 文章场景相关 */
 /* pages/user/user.wxss */
-page.data-v-7a2f7708 {
+page.data-v-0450c414 {
   width: 100%;
   height: 100%;
 }
-.user.data-v-7a2f7708 {
+.user.data-v-0450c414 {
   width: 100%;
   height: 100%;
   /* margin-top:10px; */
 }
-.user .touxiang.data-v-7a2f7708 {
+.user .touxiang.data-v-0450c414 {
   height: 100px;
   background: #efefef;
   /* line-height: 100px; */
   margin: auto;
 }
-.user .touxiang image.data-v-7a2f7708 {
+.user .touxiang image.data-v-0450c414 {
   width: 60px;
   height: 60px;
   padding: 20px 10px;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
   float: left;
 }
-.user .touxiang text.data-v-7a2f7708 {
+.user .touxiang text.data-v-0450c414 {
   display: inline-block;
   height: 100px;
   line-height: 100px;
   float: left;
 }
-.user .list.data-v-7a2f7708 {
+.user .list.data-v-0450c414 {
   width: 100%;
   height: 60px;
 }
-.user .list view.data-v-7a2f7708 {
+.user .list view.data-v-0450c414 {
   width: 100%;
   height: 60px;
   padding-left: 10px;
@@ -67,17 +68,17 @@ page.data-v-7a2f7708 {
   /* background: rgb(177, 169, 166); */
   position: relative;
 }
-.user .list view image.data-v-7a2f7708 {
+.user .list view image.data-v-0450c414 {
   width: 30px;
   height: 30px;
   padding: 5px;
   float: left;
   padding-top: 15px;
 }
-.user .list view text.data-v-7a2f7708 {
+.user .list view text.data-v-0450c414 {
   float: left;
 }
-.user .list view .img3.data-v-7a2f7708 {
+.user .list view .img3.data-v-0450c414 {
   position: absolute;
   right: 30px;
   top: 50%;
