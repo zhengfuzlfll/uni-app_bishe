@@ -2,13 +2,13 @@
 	<view class="chat">
 		<image @click="chatadd()" class="add" src="../../static/resources/chat/tianjia.png" mode=""></image>
 		<ul>
-			<li>
+			<li v-for='item in chatlist' :key='item.id'>
 				<view class="">
-					【问题】食堂路口的灯坏了，希望修理或更换一下
+					{{item.msg}}
 				</view>
 				<view class="">
-					<text>发表者：XX</text>&nbsp;&nbsp;&nbsp;&nbsp;
-					<text>2020-10-9 09:36</text>
+					<text>发表者：{{item.phone}}</text>
+					<text>-{{item.date , item.time}}</text>
 				</view>
 			</li>
 		</ul>
@@ -19,15 +19,27 @@
 	export default {
 		data() {
 			return {
-				
+				chatlist:''
 			}
 		},
 		methods: {
+			/* 点击进入另外的页面 */
 			chatadd(){
 				uni.navigateTo({
 				    url: '../../component/chatadd/chatadd'
 				});
 			}
+		},
+		created() {
+			let self=this
+			uni.request({
+				url:'http://localhost:10086/chat',
+				success(res) {
+					
+					self.chatlist=res.data.data.reverse()
+					// console.log('chat',res.data.data.reverse())
+				}
+			})
 		}
 	}
 </script>

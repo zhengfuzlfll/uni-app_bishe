@@ -150,16 +150,29 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      chatlist: '' };
 
   },
   methods: {
+    /* 点击进入另外的页面 */
     chatadd: function chatadd() {
       uni.navigateTo({
         url: '../../component/chatadd/chatadd' });
 
-    } } };exports.default = _default;
+    } },
+
+  created: function created() {
+    var self = this;
+    uni.request({
+      url: 'http://localhost:10086/chat',
+      success: function success(res) {
+
+        self.chatlist = res.data.data.reverse();
+        // console.log('chat',res.data.data.reverse())
+      } });
+
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

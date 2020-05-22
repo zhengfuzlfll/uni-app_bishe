@@ -20,7 +20,7 @@
 				if(this.msg.trim()){
 					let a=new Date().toLocaleString().split(' ')
 					let date=a[0]//日期
-					let now=a[1].slice(2,-3)//时间
+					let time=a[1].slice(2,-3)//时间
 					let self=this
 					uni.getStorage({
 						key:'user_phone',
@@ -31,9 +31,9 @@
 									icon:'none'
 								})
 							}else{
-								phone=res.data
+								// phone=res.data
 								uni.request({
-									url:'http://localhost:10086/chat',
+									url:'http://localhost:10086/chat/insert',
 									method:'POST',
 									data:{
 										phone:res.data,
@@ -41,12 +41,15 @@
 										date,
 										time
 									}
-								})
+								}),
+								uni.switchTab({
+								    url: '../../pages/chat/chat'
+								});
 							}
 							
 						}
 					})
-					console.log(time,now,phone)
+					// console.log(time,now,phone)
 				}else{
 					uni.showToast({
 						title:'请输入内容',

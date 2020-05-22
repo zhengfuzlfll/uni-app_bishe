@@ -136,7 +136,7 @@ var _default =
       if (this.msg.trim()) {
         var a = new Date().toLocaleString().split(' ');
         var date = a[0]; //日期
-        var now = a[1].slice(2, -3); //时间
+        var time = a[1].slice(2, -3); //时间
         var self = this;
         uni.getStorage({
           key: 'user_phone',
@@ -147,22 +147,25 @@ var _default =
                 icon: 'none' });
 
             } else {
-              phone = res.data;
+              // phone=res.data
               uni.request({
-                url: 'http://localhost:10086/chat',
+                url: 'http://localhost:10086/chat/insert',
                 method: 'POST',
                 data: {
                   phone: res.data,
                   msg: self.msg,
                   date: date,
-                  time: time } });
+                  time: time } }),
 
+
+              uni.switchTab({
+                url: '../../pages/chat/chat' });
 
             }
 
           } });
 
-        console.log(time, now, phone);
+        // console.log(time,now,phone)
       } else {
         uni.showToast({
           title: '请输入内容',
