@@ -1,23 +1,30 @@
 <template>
 	<view class="home">
 		<!-- 轮播图 -->
-		<swiper indicator-dots autoplay interval="2000" circular class="home-top">
-			<swiper-item>
-			    <image src="../../static/logo.png"></image>
-			</swiper-item>
-			<swiper-item>
-			    <image src="../../static/logo.png"></image>
-			</swiper-item>
-			<swiper-item>
-			    <image src="../../static/logo.png"></image>
-			</swiper-item>
-			<swiper-item>
-			    <image src="../../static/logo.png"></image>
-			</swiper-item>
-			<swiper-item>
-			    <image src="../../static/logo.png"></image>
-			</swiper-item>
-		</swiper>
+		<view class="show">
+			<view class="notice-icon">
+				<image src="../../static/resources/home/热卖.png" mode=""></image>
+				<text>推荐菜式</text>
+			</view>
+			<swiper indicator-dots autoplay interval="3000" circular class="home-top">
+				<swiper-item>
+					<image src="http://img1.imgtn.bdimg.com/it/u=1803174689,3504160992&fm=26&gp=0.jpg"></image>
+				</swiper-item>
+				<swiper-item>
+					<image src="http://img3.imgtn.bdimg.com/it/u=1719390190,2644315671&fm=26&gp=0.jpg"></image>
+				</swiper-item>
+				<swiper-item>
+					<image src="http://img5.imgtn.bdimg.com/it/u=3693979980,3454780521&fm=26&gp=0.jpg"></image>
+				</swiper-item>
+				<swiper-item>
+					<image src="http://img3.imgtn.bdimg.com/it/u=1046980313,343520860&fm=26&gp=0.jpg"></image>
+				</swiper-item>
+				<swiper-item>
+					<image src="http://img0.imgtn.bdimg.com/it/u=3449663486,3264178046&fm=26&gp=0.jpg"></image>
+				</swiper-item>
+			</swiper>
+		</view>
+		
 		
 		<!-- 公告区 -->
 		<view class="notice">
@@ -74,12 +81,21 @@
 		
 		<!-- 失物招领 -->
 		<view class="lostandfound">
-			<view >
-				失物招领栏
+			<view class="notice-icon">
+				<image src="../../static/resources/home/失物招领.png" mode=""></image>
+				<text>失物招领</text>
 			</view>
-			<ul>
-				<li>11</li>
-			</ul>
+			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+				<swiper-item>
+					<view class="swiper-item">
+						急寻：由于不慎丢失金士顿银色U盘一枚，内含重要数据，
+						望拾到者归还，好人有好报，本人联系方式QQ：111111
+					</view>
+				</swiper-item>
+				<!-- <swiper-item>
+					<view class="swiper-item">2</view>
+				</swiper-item> -->
+			</swiper>
 		</view>
 	</view>
 </template>
@@ -108,7 +124,11 @@ ul,li{
 		border-top: 1rpx solid #ccc;
 		margin-top:10rpx ;
 	}
-	.notice{
+	image{
+		width: 100%	;
+		height: 100%;
+	}
+	.show,.notice,.lostandfound{
 		.notice-icon{
 			height: 80rpx;
 			line-height: 80rpx;
