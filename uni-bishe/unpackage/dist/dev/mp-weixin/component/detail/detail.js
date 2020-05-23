@@ -149,6 +149,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   /* navigateTo跳转 */
@@ -166,9 +187,26 @@ var _default =
   },
   data: function data() {
     return {
-      foodlist: [] };
+      foodlist: [],
+      flag: true,
+      isshow: false };
 
   },
+  methods: {
+    /* 购买 */
+    buy: function buy(id) {
+      console.log(id);
+      // this.flag=false
+
+    },
+    shopcar: function shopcar() {
+      this.isshow = !this.isshow;
+    },
+    addbtn: function addbtn() {
+      this.isshow = !this.isshow;
+    } },
+
+
   created: function created() {
     var id;
     var self = this;

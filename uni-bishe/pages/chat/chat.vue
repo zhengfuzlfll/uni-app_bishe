@@ -1,6 +1,8 @@
 <template>
 	<view class="chat">
-		<image @click="chatadd()" class="add" src="../../static/resources/chat/tianjia.png" mode=""></image>
+		<view class="addbox">
+			<image @click="chatadd()" class="add" src="../../static/resources/chat/tianjia.png" mode=""></image>
+		</view>
 		<ul>
 			<li v-for='item in chatlist' :key='item.id'>
 				<view class="">
@@ -8,7 +10,7 @@
 				</view>
 				<view class="">
 					<text>发表者：{{item.phone}}</text>
-					<text>-{{item.date , item.time}}</text>
+					<text>-{{item.date}}-{{item.time}}</text>
 				</view>
 			</li>
 		</ul>
@@ -50,13 +52,23 @@
 		padding: 0;
 	}
 .chat{
-	.add{
-		width: 80rpx;
+	width: 100%;
+	.addbox{
+		width: 100%;
 		height: 80rpx;
-		position: fixed;
-		right: 20rpx;
-		top: 50%;
-		transform: translateY(-50%);
+		text-align: center;
+		// border-bottom:1rpx solid #ccc ;
+		margin: 10rpx;
+		.add{
+			width: 80rpx;
+			height: 80rpx;
+			// position: fixed;
+			// right: 20rpx;
+			// top: 50%;
+			// transform: translateY(-50%);
+			
+			
+		}
 	}
 	ul{
 		li{

@@ -24,10 +24,31 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.detail {
+._ul, ._li {
+  list-style: none;
+  padding: 0;
+}
+.detailall .top-msg {
+  width: 98%;
+  background: #ccc;
+  margin: auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+}
+.detailall .top-msg image {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.detailall .detail {
   width: 100%;
 }
-.detail .detail-item {
+.detailall .detail .detail-item {
   width: 48%;
   height: 300rpx;
   float: left;
@@ -35,27 +56,27 @@
   position: relative;
   margin: 5rpx;
 }
-.detail .detail-item image {
+.detailall .detail .detail-item image {
   width: 100%;
   height: 100%;
 }
-.detail .detail-item ._p {
+.detailall .detail .detail-item ._p {
   position: absolute;
   top: 20rpx;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-.detail .detail-item ._p ._span {
+.detailall .detail .detail-item ._p ._span {
   display: inline-block;
   width: 350rpx;
   height: 50rpx;
   text-align: center;
   line-height: 50rpx;
 }
-.detail .detail-item .buy {
+.detailall .detail .detail-item .buy {
   position: absolute;
-  bottom: 0;
+  bottom: 10rpx;
   width: 100rpx;
   height: 60rpx;
   border: 1px solid #ccc;
@@ -66,5 +87,49 @@
   text-align: center;
   background-color: red;
   border: 10rpx;
+}
+.detailall .hasorder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 100rpx;
+  background: white;
+}
+.detailall .hasorder .button {
+  width: 100%;
+  height: 98rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.detailall .hasorder .button text {
+  width: 200rpx;
+  height: 98rpx;
+  display: inline-block;
+  line-height: 98rpx;
+  text-align: center;
+  margin: auto;
+  border: 1rpx solid red;
+  background: #efefef;
+}
+.detailall .hasorder .button .buy-btn {
+  background: red;
+}
+.detailall .hasorder .button .add-btn {
+  border-color: #efefef;
+}
+.detailall .hasorder ._ul ._li {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ccc;
+  margin: auto;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.detailall .hasorder ._ul ._li .left {
+  float: left;
+}
+.detailall .hasorder ._ul ._li .right {
+  float: right;
 }
 

@@ -64,6 +64,10 @@
             "path" : "component/chatadd/chatadd",
             "style" : {}
         }
+        ,{
+            "path" : "component/cart/cart",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

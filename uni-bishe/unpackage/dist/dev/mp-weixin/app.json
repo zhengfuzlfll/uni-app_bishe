@@ -11,7 +11,8 @@
     "component/usermsg/usermsg",
     "component/userorder/userorder",
     "component/usernotice/usernotice",
-    "component/chatadd/chatadd"
+    "component/chatadd/chatadd",
+    "component/cart/cart"
   ],
   "subPackages": [],
   "window": {
@@ -56,6 +57,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap94.json"
+  "usingComponents": {}
 }
