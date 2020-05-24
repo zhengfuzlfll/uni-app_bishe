@@ -207,7 +207,7 @@ ul,li{
 				// width: 90%;
 				margin: auto;
 				padding-left:20rpx ;
-				padding-right:20rpx ;
+				padding-right:20rpx;
 				.left{
 					float: left;
 				}

@@ -38,35 +38,51 @@
         }
         ,{
             "path" : "component/detail/detail",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "详情"
+			}
         }
         ,{
             "path" : "pages/login/login",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "登录"
+			}
         }
         ,{
             "path" : "pages/reg/reg",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "注册"
+			}
         }
         ,{
             "path" : "component/usermsg/usermsg",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "我的-账户信息"
+			}
         }
         ,{
             "path" : "component/userorder/userorder",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "我的-我的订单"
+			}
         }
         ,{
             "path" : "component/usernotice/usernotice",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "我的-系统通知"
+			}
         }
         ,{
             "path" : "component/chatadd/chatadd",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "社区-添加"
+			}
         }
         ,{
             "path" : "component/cart/cart",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "详情"
+			}
         }
     ],
 	"globalStyle": {

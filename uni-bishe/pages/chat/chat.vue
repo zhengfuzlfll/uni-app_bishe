@@ -8,7 +8,7 @@
 				<view class="">
 					{{item.msg}}
 				</view>
-				<view class="">
+				<view class="tips">
 					<text>发表者：{{item.phone}}</text>
 					<text>-{{item.date}}-{{item.time}}</text>
 				</view>
@@ -74,6 +74,9 @@
 		li{
 			border-bottom: 1rpx solid #ccc;
 			padding: 10rpx;
+			.tips{
+				font-size: 20rpx;
+			}
 		}
 	}
 }

@@ -45,4 +45,7 @@
   border-bottom: 1rpx solid #ccc;
   padding: 10rpx;
 }
+.chat ._ul ._li .tips.data-v-35f13798 {
+  font-size: 20rpx;
+}
 

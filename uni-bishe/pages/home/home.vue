@@ -46,7 +46,7 @@
 				</swiper-item>
 				<swiper-item>
 				    <view class="tongzhi"  style="padding: 10rpx;">
-				    	通知：食堂于明天（5.20）正常开放，欢迎广大师生就餐！
+				    	通知：食堂于明天（5.20）正常开放，欢迎广大师生前来就餐！
 				    </view>
 				    <view class="name" style="text-align: right;padding-right:20rpx;">
 				    	食堂管理处 
@@ -89,7 +89,7 @@
 				<swiper-item>
 					<view class="swiper-item">
 						急寻：由于不慎丢失金士顿银色U盘一枚，内含重要数据，
-						望拾到者归还，好人有好报，本人联系方式QQ：111111
+						望拾到者归还,万分感谢！本人联系方式QQ：XXX
 					</view>
 				</swiper-item>
 				<!-- <swiper-item>
