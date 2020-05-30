@@ -12,15 +12,19 @@
 		<view class="code">
 			<label>验证码：</label>
 			<input class="inputA" type="text" value="" placeholder="验证码" v-model="codemsg" @blur="code(codemsg)"/>
-			<span class='sendcode'>发送验证码</span>
+			
+			<span class='sendcode' @click='vertycodeSend()'>{{sendmsg}}</span>
+			<!-- <span class='sendcode'></span> -->
+			<!-- <text class='sendcode' v-if='sendmsg'></text> -->
+			<!-- <text class='sendcode' v-else='' @click='vertycodeSend()'>发送验证码</text> -->
 		</view>
 		<view class="password">
 			<label>密码：</label>
-			<input class="inputA" type="text" value="" placeholder="请输入密码" v-model='passwordmsg' @blur="password(passwordmsg)"/>
+			<input class="inputA" type="password" value="" placeholder="请输入密码" v-model='passwordmsg' @blur="password(passwordmsg)"/>
 		</view>
 		<view class="password2">
 			<label>确认密码：</label>
-			<input class="inputA" type="text" value="" placeholder="确认密码" v-model="passwordmsg2" @blur="password2(passwordmsg2)"/>
+			<input class="inputA" type="password" value="" placeholder="确认密码" v-model="passwordmsg2" @blur="password2(passwordmsg2)"/>
 		</view>
 		<view class="btn-login" @click="reg()">
 			注册
@@ -34,6 +38,7 @@
 			return {
 				phonemsg:'',
 				codemsg:'',
+				sendmsg:'发送验证码',
 				passwordmsg:'',
 				passwordmsg2:'',
 				isok:false,
@@ -145,14 +150,17 @@
 					if(this.isok && this.istrue && this.isright){
 						uni.setStorage({
 							key:'phone',
-							value:this.phonemsg.trim()
+							value:self.phonemsg.trim()
 						}),
 						uni.request({
 							url:'http://localhost:10086/user/reg',
 							method:'POST',
+							header:{
+								'content-type': 'application/x-www-form-urlencoded', 
+							},
 							data: {
-							        phone: 'name',
-							        password: '18'
+							        phone: self.phonemsg.trim(),
+							        password:self.passwordmsg.trim()
 							    },
 						}),
 						uni.reLaunch({
@@ -170,7 +178,23 @@
 						icon:'none'
 					})
 				}
+			},
+			vertycodeSend(){
+				console.log(111)
+				let self=this
+				let num=10
+				self.sendmsg='发送验证码'
+				setInterval(function(){
+					// console.log(num--)
+					if(num>0){
+						self.sendmsg=`${num--}秒后重新发送`
+						console.log(num)
+					}else{
+						self.sendmsg='发送验证码'
+					}
+				},1000)
 			}
+		
 		}
 	}
 </script>
@@ -214,7 +238,7 @@
 	.code{
 		position: relative;
 		input{
-			width: 40%;
+			width: 30%;
 		}
 		.sendcode{
 			position: absolute;

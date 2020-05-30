@@ -1,44 +1,47 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
-	"appid": "wx6a2a9d105a8e63d5",
-	"projectname": "uni-bishe",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"name": "一食堂",
-					"id": 0,
-					"pathName": "pages/one/one"
-				},
-				{
-					"name": "二食堂",
-					"id": 1,
-					"pathName": "pages/two/two"
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.9.2",
+  "appid": "wx6a2a9d105a8e63d5",
+  "projectname": "uni-bishe",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "一食堂",
+          "id": 0,
+          "pathName": "pages/one/one"
+        },
+        {
+          "name": "二食堂",
+          "id": 1,
+          "pathName": "pages/two/two"
+        },
+        {
+          "name": "社区",
+          "id": 2,
+          "pathName": "pages/chat/chat"
+        }
+      ]
+    }
+  }
 }

@@ -44,8 +44,7 @@ page.data-v-0450c414 {
   width: 60px;
   height: 60px;
   padding: 20px 10px;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   float: left;
 }
 .user .touxiang text.data-v-0450c414 {

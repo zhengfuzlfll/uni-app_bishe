@@ -160,12 +160,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       phonemsg: '',
       codemsg: '',
+      sendmsg: '发送验证码',
       passwordmsg: '',
       passwordmsg2: '',
       isok: false,
@@ -277,14 +282,17 @@ var _default =
         if (this.isok && this.istrue && this.isright) {
           uni.setStorage({
             key: 'phone',
-            value: this.phonemsg.trim() }),
+            value: self.phonemsg.trim() }),
 
           uni.request({
             url: 'http://localhost:10086/user/reg',
             method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded' },
+
             data: {
-              phone: 'name',
-              password: '18' } }),
+              phone: self.phonemsg.trim(),
+              password: self.passwordmsg.trim() } }),
 
 
           uni.reLaunch({
@@ -302,6 +310,21 @@ var _default =
           icon: 'none' });
 
       }
+    },
+    vertycodeSend: function vertycodeSend() {
+      console.log(111);
+      var self = this;
+      var num = 10;
+      self.sendmsg = '发送验证码';
+      setInterval(function () {
+        // console.log(num--)
+        if (num > 0) {
+          self.sendmsg = "".concat(num--, "\u79D2\u540E\u91CD\u65B0\u53D1\u9001");
+          console.log(num);
+        } else {
+          self.sendmsg = '发送验证码';
+        }
+      }, 1000);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

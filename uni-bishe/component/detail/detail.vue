@@ -2,7 +2,7 @@
 	<view class="detailall">
 		<view class="top-msg">
 			<view class="">
-				一食堂一楼一号窗口
+				{{msg}}食堂{{msg2}}楼{{msg3}}号窗口
 			</view>
 			<image src="../../static/resources/one/购物车.png" mode="" @click="shopcar()"></image>
 		</view>
@@ -57,7 +57,10 @@
 			return {
 				foodlist:[],
 				flag:true,
-				isshow:false
+				isshow:false,
+				msg:'',
+				msg2:'',
+				msg3:''
 			};
 		},
 		methods:{

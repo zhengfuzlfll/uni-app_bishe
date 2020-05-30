@@ -4,6 +4,9 @@
 		<view class="submit" @click="submit()">
 			提交
 		</view>
+		<view class="login" @click="toLogin()" v-show="flag">
+			登录
+		</view>
 	</view>
 </template>
 
@@ -11,7 +14,8 @@
 	export default {
 		data() {
 			return {
-				msg:''
+				msg:'',
+				flag:true
 			};
 		},
 		methods:{
@@ -25,28 +29,35 @@
 					uni.getStorage({
 						key:'user_phone',
 						success(res) {
-							if(!res.data){
-								uni.showToast({
-									title:'请先登录',
-									icon:'none'
-								})
-							}else{
+							// if(!res.data){
+								
+							// }else{
 								// phone=res.data
 								uni.request({
 									url:'http://localhost:10086/chat/insert',
 									method:'POST',
+									header:{
+										'content-type': 'application/x-www-form-urlencoded', 
+									},
 									data:{
 										phone:res.data,
 										msg:self.msg,
 										date,
 										time
+									},
+									success() {
+										/* 数据存入成功，跳转回社区页 */
+										uni.switchTab({
+											url: '../../pages/chat/chat'
+										});
 									}
-								}),
-								uni.switchTab({
-								    url: '../../pages/chat/chat'
-								});
-							}
-							
+								})
+							},
+						fail(){
+							uni.showToast({
+								title:'请先登录',
+								icon:'none'
+							})
 						}
 					})
 					// console.log(time,now,phone)

@@ -123,11 +123,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      msg: '' };
+      msg: '',
+      flag: true };
 
   },
   methods: {
@@ -141,27 +145,34 @@ var _default =
         uni.getStorage({
           key: 'user_phone',
           success: function success(res) {
-            if (!res.data) {
-              uni.showToast({
-                title: '请先登录',
-                icon: 'none' });
+            // if(!res.data){
 
-            } else {
-              // phone=res.data
-              uni.request({
-                url: 'http://localhost:10086/chat/insert',
-                method: 'POST',
-                data: {
-                  phone: res.data,
-                  msg: self.msg,
-                  date: date,
-                  time: time } }),
+            // }else{
+            // phone=res.data
+            uni.request({
+              url: 'http://localhost:10086/chat/insert',
+              method: 'POST',
+              header: {
+                'content-type': 'application/x-www-form-urlencoded' },
 
+              data: {
+                phone: res.data,
+                msg: self.msg,
+                date: date,
+                time: time },
 
-              uni.switchTab({
-                url: '../../pages/chat/chat' });
+              success: function success() {
+                /* 数据存入成功，跳转回社区页 */
+                uni.switchTab({
+                  url: '../../pages/chat/chat' });
 
-            }
+              } });
+
+          },
+          fail: function fail() {
+            uni.showToast({
+              title: '请先登录',
+              icon: 'none' });
 
           } });
 

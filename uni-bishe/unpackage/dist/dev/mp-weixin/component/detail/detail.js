@@ -189,7 +189,10 @@ var _default =
     return {
       foodlist: [],
       flag: true,
-      isshow: false };
+      isshow: false,
+      msg: '',
+      msg2: '',
+      msg3: '' };
 
   },
   methods: {

@@ -164,12 +164,36 @@ var _default =
 
   },
   methods: {
+    /* 退出登录 */
     logout: function logout() {
-      this.isshow = true;
+      var self = this;
+      uni.getStorage({
+        key: 'user_phone',
+        success: function success(res) {
+          console.log('res.data', res.data);
+          // if(res.data){
+          self.isshow = true;
+          // }else{
+          // 	uni.showToast({
+          // 		title:'您还没登录哦！',
+          // 		icon:'none'
+          // 	})
+          // }
+        },
+        fail: function fail() {
+          uni.showToast({
+            title: '您还没登录哦！',
+            icon: 'none' });
+
+        } });
+
+      // this.isshow=true
     },
+    /* 取消 退出*/
     cancel: function cancel() {
       this.isshow = false;
     },
+    /* 确定退出 */
     sureout: function sureout() {
       uni.removeStorage({
         key: 'user_phone',
@@ -180,6 +204,13 @@ var _default =
 
 
         } });
+
+    },
+    /* 修改密码 */
+    changePassowrd: function changePassowrd() {
+      // console.log(666)
+      uni.navigateTo({
+        url: '../changePassword/changePassword' });
 
     } },
 

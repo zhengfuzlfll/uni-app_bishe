@@ -4,7 +4,7 @@
 			<li>
 				手机号：{{phone}}
 			</li>
-			<li class='li2'>
+			<li class='li2' @click='changePassowrd()'>
 				修改密码
 				 <image class="img3" src="../../static/resources/user/arrow.png"></image>
 			</li>
@@ -32,12 +32,36 @@
 			};
 		},
 		methods:{
+			/* 退出登录 */
 			logout(){
-				this.isshow=true
+				let self = this
+				uni.getStorage({
+					key:'user_phone',
+					success(res) {
+						console.log('res.data',res.data)
+						// if(res.data){
+							self.isshow=true
+						// }else{
+						// 	uni.showToast({
+						// 		title:'您还没登录哦！',
+						// 		icon:'none'
+						// 	})
+						// }
+					},
+					fail() {
+						uni.showToast({
+							title:'您还没登录哦！',
+							icon:'none'
+						})
+					}
+				})
+				// this.isshow=true
 			},
+			/* 取消 退出*/
 			cancel(){
 				this.isshow=false
 			},
+			/* 确定退出 */
 			sureout(){
 				uni.removeStorage({
 					key:'user_phone',
@@ -48,6 +72,13 @@
 							
 						
 					}
+				})
+			},
+			/* 修改密码 */
+			changePassowrd(){
+				// console.log(666)
+				uni.navigateTo({
+					url:'../changePassword/changePassword'
 				})
 			}
 		},

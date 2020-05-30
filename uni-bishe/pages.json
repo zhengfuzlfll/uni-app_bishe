@@ -84,6 +84,12 @@
 				"navigationBarTitleText": "详情"
 			}
         }
+        ,{
+            "path" : "component/changePassword/changePassword",
+            "style" : {
+				"navigationBarTitleText": "修改密码"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -133,6 +139,9 @@
 		},{
 			"name":"二食堂",
 			"path":"pages/two/two"
+		},{
+			"name":"社区",
+			"path":"pages/chat/chat"
 		}]
 	}
 }
